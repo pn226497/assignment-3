@@ -1,0 +1,28 @@
+<p>favorite works!</p>
+<div class="mb-5">
+    <app-menu></app-menu>  
+  </div>
+  <div class="card-body" >
+    <!-- <div class="row">
+        <div class="col">
+            <pre>{{ tracks | json}}</pre>
+        </div>
+    </div> -->
+    <div class="row " > 
+        <div class="col-12 mt-4" *ngFor="let track of tracks">
+            <div class="card-body row bg-secondary text-white text-center" style="   background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%); ">
+                
+                <p class="lead col-4">{{track.name}}</p>
+                <p>
+                    
+                </p>
+                <button type="button" class="btn text-white" style="border-radius:40px 100px ;">Share<i class="fa fa-share ml-1" aria-hidden="true"></i></button>
+                <audio controls>
+                    <source src="{{track.preview_url}}" type="">
+                    
+                </audio>
+                <!-- <button type="button" class="btn text-white" style="border-radius: 100px 40px;"><i class="fa fa-heart-o" aria-hidden="true"></i>Like</button> -->
+            </div>
+        </div>
+    </div>
+</div>

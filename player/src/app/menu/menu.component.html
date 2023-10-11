@@ -1,0 +1,50 @@
+
+
+<div>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-light mb-5" style="background-color: #e3f2fd;">
+        <a class="navbar-brand" routerLink="/" routerLinkActive="router-link-active">
+            <img src="https://png.pngtree.com/element_our/png_detail/20181022/music-and-live-music-logo-with-neon-light-effect-vector-png_199406.jpg"
+                width="30" height="30" class="d-inline-block align-top" alt="">
+            Trang chủ
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                
+                <li class="nav-item active">
+                    <a class="nav-link" routerLink="/favorite">Nhạc yêu thích <span class="sr-only">(current)</span></a>
+                </li>
+
+            </ul>
+            <div class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Tìm kiếm tác giả" [(ngModel)]="search"
+                    (keyup)="loadData()">
+                <!-- <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> -->
+            </div>
+        </div>
+    </nav>
+<div class="container">
+    <!-- <pre>{{artists | json}}</pre> -->
+    <div class="row" *ngIf="search">
+        <div class="col-sm-6 col-md-4 col-lg-3 mb-4" *ngFor="let art of artists">
+            <div class="card" style="border: 10px black;">
+                <img class="card-img-top" src="{{art?.images[0]?.url}}" alt="{{art.name}}" style="height: 200px; ">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a routerLink="/detail/{{art.id}}">{{art.name}}</a>
+                    </h5>
+                    <p class="card-text">Số lượng theo dõi {{art.followers.total | number}}</p>
+                    <ul class="list-unstyled">Thể loại nhạc:
+                        <li *ngFor="let tl of art.genres">
+                            <h6>&#9679; {{tl}}</h6>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

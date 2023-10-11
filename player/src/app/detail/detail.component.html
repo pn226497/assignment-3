@@ -1,0 +1,54 @@
+
+<div >
+  <app-menu></app-menu>  
+</div>
+<section class=" mt-5 pt-5" style="margin-bottom: 30px;">
+    <div class="container-fluid">
+        <!-- <div class="row">
+            <div class="col">
+                <pre>{{artist | json}}</pre>
+            </div>
+        </div> -->
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header  text-white" style="background-image: linear-gradient(to top, #6a85b6 0%, #bac8e0 100%);">
+                        <div class="row no-gutters align-items-center" >
+                            <div class="col-md-2">
+                                <img src="{{artist?.images[0]?.url}}"  style="height: 200px; border-radius: 50%;" class="img-fluid img-thumbnail">
+                            </div>
+                            <div class="col-md-10">
+                                <h5 class="display-3">
+                                    {{artist.name}}
+                                </h5>
+                                <ul class="h3">Thể loại nhạc:
+                                    <li  class="ml-5" *ngFor="let genre of artist.genres"><h6>{{genre}}</h6> </li>
+                                </ul>
+                                <p class="h3 ml-5">Số lượng theo dõi: {{artist.followers.total | number}}</p>
+                                <!-- <button type="button" class="btn btn-success ml-5">Back</button> -->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-body" >
+                        <div class="row">
+                            <div class="col-md-3 mb-3" *ngFor="let album of albums">
+                                <div class="card" style="height: 500px;"> 
+                                    <div class="card-body text-white text-center" style="background-image: linear-gradient(to top, #0c3483 0%, #a2b6df 100%, #6b8cce 100%, #a2b6df 100%);">
+                                        <img src="{{album.images[0]?.url}}" class="img-fluid img-thumbnail" >
+                                        <h3 class="mt-2">{{album.name}}</h3>
+                                        
+                                        <a routerLink="/album/{{album.id}}" class="btn btn-primary  active" role="button" aria-pressed="true">View album</a>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+  

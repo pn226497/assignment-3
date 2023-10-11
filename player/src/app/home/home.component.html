@@ -1,0 +1,25 @@
+
+<div class="mb-5">
+  <app-menu></app-menu>  
+</div>
+<div class="container">
+    <!-- <pre>{{artists | json}}</pre> -->
+    <div class="row">
+        <div class="col-sm-6 col-md-4 col-lg-3 mb-4" *ngFor="let art of artists">
+            <div class="card" style="border: 10px black;">
+                <img class="card-img-top" src="{{art?.images[0]?.url}}" alt="{{art.name}}" style="height: 200px; ">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a routerLink="/detail/{{art.id}}">{{art.name}}</a>
+                    </h5>
+                    <p class="card-text">Số lượng theo dõi {{art.followers.total | number}}</p>
+                    <ul class="list-unstyled">Thể loại nhạc:
+                        <li *ngFor="let tl of art.genres">
+                            <h6>&#9679; {{tl}}</h6>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
